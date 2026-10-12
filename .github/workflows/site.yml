@@ -39,6 +39,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         run: python3 scripts/build_feed.py site/data/feed.json
+      # (A new address for the script and styles each commit: browsers don't hold on to the old ones.)
+      - name: Stamp the version
+        run: sed -i "s/app\.js\"/app.js?v=${GITHUB_SHA::8}\"/; s/style\.css\"/style.css?v=${GITHUB_SHA::8}\"/" site/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
