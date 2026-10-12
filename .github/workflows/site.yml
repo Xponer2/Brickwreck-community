@@ -1,0 +1,47 @@
+# Rebuilds the site's data (every bug, every forum post, with their comments) and publishes the site, whenever
+# something is posted or changed — and once an hour, in case an event was missed.
+name: Site
+
+on:
+  push:
+    branches: [main]
+  issues:
+  issue_comment:
+  discussion:
+  discussion_comment:
+  release:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  discussions: read
+  pages: write
+  id-token: write
+
+# One build at a time; a burst of posts leaves one waiting, which then picks them all up.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the feed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: python3 scripts/build_feed.py site/data/feed.json
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

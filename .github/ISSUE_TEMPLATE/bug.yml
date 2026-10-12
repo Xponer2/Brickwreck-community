@@ -1,0 +1,80 @@
+name: 🐞 Bug report
+description: Something broke, crashed, looks wrong or runs badly. (English or Russian — both fine.)
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing **Brickwreck**! One bug per report, please. A short video or a screenshot helps more than anything.
+        *Можно писать по-русски.*
+
+        **Tip:** in the game, *Main menu → Report a bug* (or *Esc → Report a bug* in battle) opens this form with your version and system already filled in, and shows you the log file to drop in below.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - Crash / freeze
+        - Gameplay bug
+        - Visual glitch
+        - Performance (low FPS, stutter)
+        - Multiplayer / network
+        - Sound
+        - Text / translation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect instead?
+      placeholder: "I fired the bow chaser and the whole ship flew into the sky…"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to make it happen again
+      description: The steps, if you know them. "Happened once" is useful too.
+      placeholder: |
+        1. Battle against AI ships, 4 ships, frigate
+        2. Climb the main mast
+        3. …
+  - type: textarea
+    id: media
+    attributes:
+      label: Video / screenshots
+      description: |
+        Drag files here. GitHub takes videos up to 10 MB — for a bigger one, put it on YouTube (unlisted is fine), Streamable or Google Drive and paste the link.
+  - type: textarea
+    id: log
+    attributes:
+      label: Log file
+      description: |
+        Drag `godot.log` here. The in-game *Report a bug* button shows you where it is; by hand it's `%APPDATA%\Godot\app_userdata\Brickwreck\logs\godot.log`. Grab it **right after** the bug, before starting the game again (a new start overwrites it).
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Where were you?
+      options:
+        - Battle against AI ships
+        - Battle royale
+        - Hold the island
+        - Capture the chest
+        - Multiplayer — I was the host
+        - Multiplayer — I joined someone
+        - Menus / loading
+        - Other
+  - type: input
+    id: version
+    attributes:
+      label: Game version
+      description: Shown at the bottom of the main menu.
+      placeholder: "0.5 beta"
+  - type: textarea
+    id: system
+    attributes:
+      label: Your computer
+      description: Windows version, graphics card, quality preset. (Filled in for you when you report from the game.)
+      placeholder: "Windows 11, RTX 3060, quality: High, 1920x1080"

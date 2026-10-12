@@ -1,0 +1,21 @@
+title: ""
+body:
+  - type: markdown
+    attributes:
+      value: |
+        An idea for the game: a mode, a ship, a weapon, a change. One idea per post makes it easy to vote on — 👍 the ones you like.
+        *Можно по-русски.*
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it would be fun
+  - type: textarea
+    id: media
+    attributes:
+      label: Sketches, references, videos (optional)

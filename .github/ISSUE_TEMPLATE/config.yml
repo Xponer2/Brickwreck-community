@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Ideas, questions, videos, articles
+    url: https://github.com/Xponer2/Brickwreck-community/discussions
+    about: Everything that isn't a bug — the community forum.
+  - name: 🌊 Bug board
+    url: https://xponer2.github.io/Brickwreck-community/#/bugs
+    about: See what's already reported and what's fixed.

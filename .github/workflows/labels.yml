@@ -1,0 +1,36 @@
+# A new or edited bug report gets the label of the kind picked in its form (crash, visual, ...), so the board can
+# sort them. (The text is only read here, never run.)
+name: Label bugs
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || "";
+            const m = body.match(/###\s*What kind of problem\?\s*\n+([^\n]+)/i);
+            if (!m) return;
+            const kind = m[1].trim().toLowerCase();
+            const map = [
+              ["crash", "crash"], ["gameplay", "gameplay"], ["visual", "visual"], ["performance", "performance"],
+              ["multiplayer", "multiplayer"], ["sound", "sound"], ["text", "translation"],
+            ];
+            const hit = map.find(([k]) => kind.startsWith(k));
+            const kinds = map.map(([, l]) => l);
+            const have = context.payload.issue.labels.map(l => l.name);
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.issue.number;
+            for (const l of have)
+              if (kinds.includes(l) && (!hit || l !== hit[1]))
+                await github.rest.issues.removeLabel({ owner, repo, issue_number, name: l });
+            if (hit && !have.includes(hit[1]))
+              await github.rest.issues.addLabels({ owner, repo, issue_number, labels: [hit[1]] });

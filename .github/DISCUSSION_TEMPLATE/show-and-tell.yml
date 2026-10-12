@@ -1,0 +1,19 @@
+title: ""
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Clips, screenshots, stories from a battle, guides, articles — show it off. *Можно по-русски.*
+        GitHub takes videos up to 10 MB; for longer ones paste a YouTube / Streamable link — the site plays YouTube links right on the page.
+  - type: textarea
+    id: media
+    attributes:
+      label: Video / screenshots
+      description: Drag files here, or paste links.
+  - type: textarea
+    id: text
+    attributes:
+      label: Tell us about it
+      description: What happened, how you did it — or the whole article.
+    validations:
+      required: true
