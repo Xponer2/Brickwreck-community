@@ -2,6 +2,7 @@
 
 Bug reports, videos and discussion for the **Brickwreck** beta (sea battles of ships built of bricks).
 
+- **Download the game:** https://xponer.itch.io/brickwreck
 - **Site:** https://xponer2.github.io/Brickwreck-community/
 - **Report a bug:** [new bug report](https://github.com/Xponer2/Brickwreck-community/issues/new?template=bug.yml) — or *Main menu → Report a bug* in the game
 - **Forum:** [Discussions](https://github.com/Xponer2/Brickwreck-community/discussions) — ideas, questions, videos, guides

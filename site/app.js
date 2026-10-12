@@ -5,6 +5,7 @@
 
 const REPO = "Xponer2/Brickwreck-community";
 const GH = `https://github.com/${REPO}`;
+const ITCH = "https://xponer.itch.io/brickwreck";
 const LOG_DIR = "%APPDATA%\\Godot\\app_userdata\\Brickwreck\\logs";
 
 const T = {
@@ -15,6 +16,7 @@ const T = {
     "home.title": "Brickwreck beta testing",
     "home.text": "Bug reports, videos and discussion for the Brickwreck beta. Posting is done on GitHub (a free account is needed); reading needs nothing.",
     "home.warn": "This is an early test version and isn't considered fully playable yet. Multiplayer has barely been tested.",
+    "act.get": "Download the game (itch.io)",
     "act.bug": "Report a bug", "act.post": "New forum post", "act.video": "Post a video", "act.guide": "How to report",
     download: "Download {0}",
     "home.bugs": "Latest bugs", "home.posts": "Latest forum posts", "home.news": "News",
@@ -54,6 +56,7 @@ const T = {
     "home.title": "Бета-тест Brickwreck",
     "home.text": "Баг-репорты, видео и обсуждения беты Brickwreck. Писать — на GitHub (нужен бесплатный аккаунт), читать можно без него.",
     "home.warn": "Это ранняя тестовая версия, пока не считается полностью играбельной. Мультиплеер почти не тестировался.",
+    "act.get": "Скачать игру (itch.io)",
     "act.bug": "Сообщить о баге", "act.post": "Новый пост на форуме", "act.video": "Выложить видео", "act.guide": "Как сообщить",
     download: "Скачать {0}",
     "home.bugs": "Свежие баги", "home.posts": "Свежее на форуме", "home.news": "Новости",
@@ -269,6 +272,7 @@ function home() {
   <p>${esc(t("home.text"))}</p>
   <p class="notice">${esc(t("home.warn"))}</p>
   <div class="btns">
+    ${ext(ITCH, t("act.get"), "btn main")}
     ${ext(newBug(), t("act.bug"), "btn main")}
     ${r ? ext(asset ? asset.url : r.url, t("download", r.name)) : ""}
     ${ext(newPost(), t("act.post"))}
@@ -435,7 +439,7 @@ function chrome() {
   const v = parseHash().view;
   const section = { bug: "bugs", post: "forum" }[v] || v;
   document.querySelectorAll("#nav a").forEach(a => a.classList.toggle("on", a.dataset.r === section));
-  $("#foot").innerHTML = `<span>${feed ? esc(t("updated", ago(feed.generated))) : ""}</span><a href="${GH}" target="_blank" rel="noopener">${esc(t("foot.gh"))}</a>`;
+  $("#foot").innerHTML = `<span>${feed ? esc(t("updated", ago(feed.generated))) : ""}</span><span><a href="${ITCH}" target="_blank" rel="noopener">itch.io</a> · <a href="${GH}" target="_blank" rel="noopener">${esc(t("foot.gh"))}</a></span>`;
 }
 
 function render() {
