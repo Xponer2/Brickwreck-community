@@ -52,7 +52,7 @@ body:
     attributes:
       label: Log file
       description: |
-        Drag the log file here. The in-game *Report a bug* button shows you where it is; by hand it's the folder `%APPDATA%\Godot\app_userdata\Brickwreck\logs`. `godot.log` is the latest run; if you've started the game again since the bug (after a crash, say), take the newest `godot<date>.log` instead.
+        Drag the log file here. The in-game *Report a bug* button shows you where it is; by hand it's the folder `%APPDATA%\Godot\app_userdata\Brickwreck\logs` (Windows) or `~/.local/share/godot/app_userdata/Brickwreck/logs` (Linux). `godot.log` is the latest run; if you've started the game again since the bug (after a crash, say), take the newest `godot<date>.log` instead.
   - type: dropdown
     id: mode
     attributes:
@@ -76,5 +76,5 @@ body:
     id: system
     attributes:
       label: Your computer
-      description: Windows version, graphics card, quality preset. (Filled in for you when you report from the game.)
-      placeholder: "Windows 11, RTX 3060, quality: High, 1920x1080"
+      description: Windows or Linux version, graphics card, quality preset. (Filled in for you when you report from the game.)
+      placeholder: "Windows 11 / Ubuntu 24.04, RTX 3060, quality: High, 1920x1080"

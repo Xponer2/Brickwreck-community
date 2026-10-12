@@ -7,6 +7,7 @@ const REPO = "Xponer2/Brickwreck-community";
 const GH = `https://github.com/${REPO}`;
 const ITCH = "https://xponer.itch.io/brickwreck";
 const LOG_DIR = "%APPDATA%\\Godot\\app_userdata\\Brickwreck\\logs";
+const LOG_DIR_LINUX = "~/.local/share/godot/app_userdata/Brickwreck/logs";
 
 const T = {
   en: {
@@ -101,7 +102,7 @@ const GUIDE = {
 <li>What happened, and what you expected to happen.</li>
 <li>How to make it happen again, if you know. "Happened once" is still useful.</li>
 <li>A video or a screenshot if you can. On Windows, Win+Alt+R records with the Xbox Game Bar and Win+Shift+S takes a screenshot.</li>
-<li>The log file, from the folder <code>${LOG_DIR}</code>: <code>godot.log</code> is the latest run. If you've started the game again since the bug (after a crash, say), take the newest <code>godot&lt;date&gt;.log</code> instead.</li>
+<li>The log file, from the folder <code>${LOG_DIR}</code> (Windows) or <code>${LOG_DIR_LINUX}</code> (Linux): <code>godot.log</code> is the latest run. If you've started the game again since the bug (after a crash, say), take the newest <code>godot&lt;date&gt;.log</code> instead.</li>
 </ul>
 <h2>Videos</h2>
 <p>GitHub accepts videos up to 10 MB dragged into the form. For longer ones, upload to YouTube (unlisted is fine), Streamable or Google Drive and paste the link.</p>
@@ -117,7 +118,7 @@ const GUIDE = {
 <li>Что случилось и что должно было случиться.</li>
 <li>Как повторить, если знаете. «Случилось один раз» — тоже полезно.</li>
 <li>Видео или скриншот, если можете. В Windows Win+Alt+R пишет видео через Xbox Game Bar, Win+Shift+S делает скриншот.</li>
-<li>Лог-файл из папки <code>${LOG_DIR}</code>: <code>godot.log</code> — последний запуск. Если после бага игру уже запускали снова (например, после вылета), возьмите самый новый <code>godot&lt;дата&gt;.log</code>.</li>
+<li>Лог-файл из папки <code>${LOG_DIR}</code> (Windows) или <code>${LOG_DIR_LINUX}</code> (Linux): <code>godot.log</code> — последний запуск. Если после бага игру уже запускали снова (например, после вылета), возьмите самый новый <code>godot&lt;дата&gt;.log</code>.</li>
 </ul>
 <h2>Видео</h2>
 <p>GitHub принимает видео до 10 МБ — перетащите в форму. Более длинные загрузите на YouTube (можно «доступ по ссылке»), Streamable или Google Диск и вставьте ссылку.</p>
