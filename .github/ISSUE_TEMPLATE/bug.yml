@@ -52,7 +52,7 @@ body:
     attributes:
       label: Log file
       description: |
-        Drag `godot.log` here. The in-game *Report a bug* button shows you where it is; by hand it's `%APPDATA%\Godot\app_userdata\Brickwreck\logs\godot.log`. Grab it **right after** the bug, before starting the game again (a new start overwrites it).
+        Drag the log file here. The in-game *Report a bug* button shows you where it is; by hand it's the folder `%APPDATA%\Godot\app_userdata\Brickwreck\logs`. `godot.log` is the latest run; if you've started the game again since the bug (after a crash, say), take the newest `godot<date>.log` instead.
   - type: dropdown
     id: mode
     attributes:
