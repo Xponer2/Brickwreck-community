@@ -1,0 +1,6 @@
+{
+  "build": 1,
+  "version": "0.5 beta",
+  "url": "https://xponer.itch.io/brickwreck",
+  "about": "The game's latest build: the game compares its own build number with this one (UpdateCheck.cs). One up with every release."
+}
